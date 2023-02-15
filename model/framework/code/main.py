@@ -69,7 +69,7 @@ with open(input_file, "r") as f:
 
 # run model
 output_df = predict_df(smiles_list)
-# print(output_df)
+print(output_df)
 
 OUTPUT_COLUMN_NAME = "Predicted Class (Probability)"
 
@@ -82,14 +82,49 @@ for x in list(output_df[OUTPUT_COLUMN_NAME]):
     else:
         outputs.append(1-p)
 
-# add a new column 'Probabilities' to the output_df
-output_df['proba1'] = outputs
-print(output_df)
+# # add a new column 'Probabilities' to the output_df
+# output_df['(Probabilities)'] = outputs
 
+# create a new DataFrame with the split columns
+new_df = pd.DataFrame(columns=['smiles', 'Predicted Class', 'Prediction'])
+new_df['smiles'] = output_df['smiles']
+new_df['Prediction'] = output_df['Prediction']
+
+# split the 'Predicted Class (Probability)' column and assign to the new columns
+new_df['Predicted Class'] = output_df['Predicted Class (Probability)'].str.split('(').str[0]
+new_df['Probability'] = output_df['Predicted Class (Probability)'].str.split('(').str[1]
+
+# merge the two columns and assign to a new column
+# new_df['proba1'] = new_df['Probability']
+
+# display the new DataFrame
+print(new_df)
+
+
+# # write output in a .csv file
+# with open(output_file, "w", newline="") as f:
+#     selected_columns = new_df['Probability']
+#     writer = csv.writer(f)
+#     writer.writerow('Proba1')  # header
+#     for o in outputs:
+#         writer.writerow([o])
+
+
+# OUTPUT_COLUMN_NAME = "Predicted Class (Probability)"
+
+# outputs = []
+# for x in list(output_df[OUTPUT_COLUMN_NAME]):
+#     c = int(x.split(" ")[0])
+#     p = float(x.split("(")[1].split(")")[0])
+#     if c == 1:
+#         outputs += [p]
+#     else:
+#         outputs += [1-p]
+# print(outputs)
+        
 # write output in a .csv file
 with open(output_file, "w", newline="") as f:
-    selected_columns = ['proba1']
     writer = csv.writer(f)
-    writer.writerow(["proba1"])  # header
+    writer.writerow(["proba1"]) # header
     for o in outputs:
         writer.writerow([o])
