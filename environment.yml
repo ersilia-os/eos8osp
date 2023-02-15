@@ -1,0 +1,16 @@
+name: eos74bo
+dependencies:
+  - python=3.8
+  - pip=20.0
+  - pip:
+    - torch==1.6.0+cpu -f https://download.pytorch.org/whl/torch_stable.html
+    - numpy
+    - pandas
+    - rdkit
+    - tqdm
+    - typing-extensions
+    - typed-argument-parser
+    - tensorboardX
+    - scikit-learn
+    - hyperopt
+    - requests

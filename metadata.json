@@ -4,20 +4,21 @@
     "Status": "In progress",
     "Title": "Human Liver Microsomal Stability",
     "Description": "Prediction of human liver microsomal stability is key for the screening of drugs in the early stage of drug discovery. The liver is the main organ for metabolizing drugs in humans and testing its metabolic stability is essential for the early detection of viable drug compounds.",
-    "Mode": "",
-    "Task": [],
-    "Input": [],
-    "Input Shape": "",
-    "Output": [],
-    "Output Type": [],
-    "Output Shape": "",
-    "Interpretation": "",
+    "Mode": "Pretrained",
+    "Task": ["Classification"],
+    "Input": ["Compound"],
+    "Input Shape": "Single",
+    "Output": ["Probability"],
+    "Output Type": ["Float"],
+    "Output Shape": "Single",
+    "Interpretation": "Probability of a compound being soluble at 10 μg/mL. (>0.5: Soluble), and probability of a compound being highly soluble (>52 μg/mL; >0.5: Soluble)",
     "Tag": [
-        "hlm",
-        "liver",
-        "microsomal"
+        "HLM",
+        "Liver",
+        "Microsomal",
+        "ADME"
     ],
     "Publication": "https://pubmed.ncbi.nlm.nih.gov/17683964/",
-    "Source Code": "https://github.com/ncats/ncats-adme/tree/master",
-    "License": "MIT"
+    "Source Code": "https://github.com/ncats/ncats-adme",
+    "License": "None"
 }
