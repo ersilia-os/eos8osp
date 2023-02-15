@@ -1,11 +1,11 @@
-# Aqueous Kinetic Solubility
+# Human Liver Microsomal Stability
 
-Prediction of Aqueous solubility is one of the most important properties in drug discovery, as it has profound impact on various drug properties, including biological activity, pharmacokinetics (PK), toxicity, and in vivo efficacy.
+Prediction of human liver microsomal stability is key for the screening of drugs in the early stage of drug discovery. The liver is the main organ for metabolizing drugs in humans and testing its metabolic stability is essential for the early detection of viable drug compounds.
 
 ## Identifiers
 
-* EOS model ID: `eos74bo`
-* Slug: `aqueous-kinetic-solubility`
+* EOS model ID: `eos8osp`
+* Slug: `human-liver-microsomal-stability`
 
 ## Characteristics
 
