@@ -12,7 +12,7 @@ from numpy import array
 root = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(os.path.join(root, ".."))
 
-from rlm import rlm_gcnn_scaler, rlm_gcnn_model
+# from rlm import rlm_gcnn_scaler, rlm_gcnn_model
 from hlm import hlm_gcnn_scaler, hlm_gcnn_model
 from base.gcnn import GcnnBase
 
@@ -77,7 +77,12 @@ class HLMPredictor(GcnnBase):
             print(f'HLM: {end - start} seconds to predict {len(self.predictions_df.index)} molecules')
 
             self.predictions_df['Prediction'] = pd.Series(
-                pd.Series(np.where(gcnn_predictions>=0.5, 'unstable', 'stable'))
+                pd.Series(np.where(
+                    gcnn_predictions>=0.5, 
+                    'unstable', 
+                    'stable'
+                    )
+                )
             )
 
         return self.predictions_df

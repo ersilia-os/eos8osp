@@ -15,7 +15,8 @@
     "Tag": [
         "HLM",
         "Liver",
-        "Microsomal"
+        "Microsomal",
+        "ADME"
     ],
     "Publication": "https://pubmed.ncbi.nlm.nih.gov/17683964/",
     "Source Code": "https://github.com/ncats/ncats-adme",
